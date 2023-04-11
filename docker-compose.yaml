@@ -1,0 +1,106 @@
+version: "3.9"
+services:
+  redis-1:
+    image: redis:7.0.10-alpine
+    container_name: redis-1
+    ports:
+      - "6371:6371"
+      - "16371:16371"
+    volumes:
+      - ./data/redis-1/data:/data
+      - ./data/redis-1/conf/redis.conf:/etc/redis/redis.conf
+    networks:
+      redis:
+        ipv4_address: 172.28.0.11
+    command:
+      - "redis-server"
+      - "/etc/redis/redis.conf"
+  redis-2:
+    image: redis:7.0.10-alpine
+    container_name: redis-2
+    ports:
+      - "6372:6372"
+      - "16372:16372"
+    volumes:
+      - ./data/redis-2/data:/data
+      - ./data/redis-2/conf/redis.conf:/etc/redis/redis.conf
+    networks:
+      redis:
+        ipv4_address: 172.28.0.12
+    command:
+      - "redis-server"
+      - "/etc/redis/redis.conf"
+  redis-3:
+    image: redis:7.0.10-alpine
+    container_name: redis-3
+    ports:
+      - "6373:6373"
+      - "16373:16373"
+    volumes:
+      - ./data/redis-3/data:/data
+      - ./data/redis-3/conf/redis.conf:/etc/redis/redis.conf
+    networks:
+      redis:
+        ipv4_address: 172.28.0.13
+    command:
+      - "redis-server"
+      - "/etc/redis/redis.conf"
+  redis-4:
+    image: redis:7.0.10-alpine
+    container_name: redis-4
+    ports:
+      - "6374:6374"
+      - "16374:16374"
+    volumes:
+      - ./data/redis-4/data:/data
+      - ./data/redis-4/conf/redis.conf:/etc/redis/redis.conf
+    networks:
+      redis:
+        ipv4_address: 172.28.0.14
+    command:
+      - "redis-server"
+      - "/etc/redis/redis.conf"
+  redis-5:
+    image: redis:7.0.10-alpine
+    container_name: redis-5
+    ports:
+      - "6375:6375"
+      - "16375:16375"
+    volumes:
+      - ./data/redis-5/data:/data
+      - ./data/redis-5/conf/redis.conf:/etc/redis/redis.conf
+    networks:
+      redis:
+        ipv4_address: 172.28.0.15
+    command:
+      - "redis-server"
+      - "/etc/redis/redis.conf"
+  redis-6:
+    image: redis:7.0.10-alpine
+    container_name: redis-6
+    ports:
+      - "6376:6376"
+      - "16376:16376"
+    volumes:
+      - ./data/redis-6/data:/data
+      - ./data/redis-6/conf/redis.conf:/etc/redis/redis.conf
+    networks:
+      redis:
+        ipv4_address: 172.28.0.16
+    command:
+      - "redis-server"
+      - "/etc/redis/redis.conf"
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    networks:
+      redis:
+        ipv4_address: 172.28.0.17
+    volumes: 
+      - ./data/redisinsight/db:/db
+    ports:
+      - "8001:8001"
+networks:
+  redis:
+    ipam:
+      config:
+        - subnet: "172.28.0.0/16"
