@@ -1,5 +1,5 @@
 # Redis Cluster
-This project is modelled after the setup from the blog post: [Create Redis Cluster by Docker Compose](https://blog.fissssssh.com/posts/create-redis-cluster-by-docker-compose/) by [fissssssh](https://github.com/fissssssh). It comes with some minor adjustments that made my experiments easier
+This project is modelled after the setup from the blog post: [Create Redis Cluster by Docker Compose](https://fissssssh.aiursoft.cn/posts/create-redis-cluster-by-docker-compose/) by [fissssssh](https://github.com/fissssssh). It comes with some minor adjustments that made my experiments easier
 
 ## Components
 This setup consists out of the following components
